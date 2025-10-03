@@ -1,189 +1,247 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <title>Para Você</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <title>Para Você — Em Breve</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      background: #fff5f8;
-      font-family: 'Open Sans', sans-serif;
-      color: #522a2a;
-      min-height: 100vh;
-      background-image: url('https://www.transparenttextures.com/patterns/floral-light.png');
-    }
-
-    .page-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 60px 20px;
-      min-height: 100vh;
-      position: relative;
-    }
-
+    * { box-sizing: border-box; }
+    html,body { height:100%; margin:0; font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:#fff5f8; color:#522a2a; }
+    .page-wrapper { min-height:100%; display:flex; align-items:flex-start; justify-content:center; padding:60px 20px; position:relative; background-image: url('https://www.transparenttextures.com/patterns/floral-light.png'); }
     .container {
-      background: #ffffffee;
+      background: rgba(255,250,252,0.98);
       border: 2px solid #f4c2c2;
-      border-radius: 25px;
-      max-width: 800px;
-      width: 100%;
-      padding: 50px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-      position: relative;
-      z-index: 2;
+      border-radius: 20px;
+      max-width:820px;
+      width:100%;
+      padding:48px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      position:relative;
+      z-index:2;
+      overflow:hidden;
+    }
+    h1 { font-family: 'Great Vibes', cursive; font-size:44px; color:#c76c8c; text-align:center; margin:0 0 22px; }
+    p, .trecho { font-size:18px; line-height:1.9; white-space:pre-wrap; margin:0; color:#4a2e2e; }
+    .trecho { margin:28px 0; font-style:italic; color:#704040; }
+    .footer { text-align:center; margin-top:32px; color:#845c5c; font-style:italic; }
+    /* corações nos cantos */
+    .decor {
+      position:absolute; width:84px; height:84px; opacity:0.14; z-index:1;
+    }
+    .tl { top:12px; left:12px; transform:rotate(-10deg); }
+    .tr { top:12px; right:12px; transform:scaleX(-1) rotate(8deg); }
+    .bl { bottom:12px; left:12px; transform:rotate(5deg); }
+    .br { bottom:12px; right:12px; transform:scaleX(-1) rotate(-6deg); }
+
+    /* overlay de bloqueio */
+    .overlay {
+      position:fixed;
+      inset:0;
+      background: rgba(255,245,248,0.96);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:9999;
+      padding:20px;
+    }
+    .lock-box {
+      max-width:680px;
+      width:100%;
+      background: #fff;
+      border-radius:18px;
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+      text-align:center;
+      border: 1px solid #f2d6dd;
+    }
+    .lock-box h2 { margin:0 0 8px; color:#c14f76; font-size:26px; font-weight:600; }
+    .lock-box p { margin:0 0 16px; color:#6a3d44; font-size:16px; }
+    .countdown { font-weight:700; font-size:20px; color:#4a2e2e; margin-bottom:12px; }
+    .small { font-size:13px; color:#8a5b63; margin-top:6px; }
+
+    /* botão opcional */
+    .btn {
+      display:inline-block;
+      background:#c76c8c;
+      color:#fff;
+      padding:10px 16px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      margin-top:10px;
     }
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 44px;
-      text-align: center;
-      color: #c76c8c;
-      margin-bottom: 30px;
-    }
-
-    p,
-    .trecho {
-      font-size: 18px;
-      line-height: 2;
-      white-space: pre-wrap;
-    }
-
-    .trecho {
-      margin: 30px 0;
-      font-style: italic;
-      color: #704040;
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      font-style: italic;
-      color: #845c5c;
-    }
-
-    .decor-icon {
-      width: 80px;
-      height: 80px;
-      position: absolute;
-      opacity: 0.15;
-      z-index: 1;
-    }
-
-    .top-left {
-      top: 10px;
-      left: 10px;
-    }
-
-    .top-right {
-      top: 10px;
-      right: 10px;
-    }
-
-    .bottom-left {
-      bottom: 10px;
-      left: 10px;
-    }
-
-    .bottom-right {
-      bottom: 10px;
-      right: 10px;
-    }
-
-    @media (max-width: 600px) {
-      .decor-icon {
-        width: 50px;
-        height: 50px;
-      }
-
-      h1 {
-        font-size: 32px;
-      }
-
-      p,
-      .trecho {
-        font-size: 16px;
-      }
+    @media (max-width:600px){
+      .decor { width:60px; height:60px; }
+      .container { padding:28px; }
+      h1 { font-size:34px; }
+      .lock-box h2 { font-size:20px; }
+      .countdown { font-size:18px; }
     }
   </style>
 </head>
-
 <body>
   <div class="page-wrapper">
 
-    <!-- Ícones de corações nos cantos -->
-    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Coração topo esquerdo" class="decor-icon top-left" />
-    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Coração topo direito" class="decor-icon top-right" />
-    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Coração inferior esquerdo" class="decor-icon bottom-left" />
-    <img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="Coração inferior direito" class="decor-icon bottom-right" />
+    <!-- corações decorativos nos cantos (substituem margaridas) -->
+    <img class="decor tl" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="coração topo esquerdo">
+    <img class="decor tr" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="coração topo direito">
+    <img class="decor bl" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="coração baixo esquerdo">
+    <img class="decor br" src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="coração baixo direito">
 
-    <div class="container">
+    <main class="container" id="content">
       <h1>Para Você</h1>
+
       <p>
-        Sou eu, sim.  
-        Alguém que te admira não só pelo que vejo por fora,  
-        mas pela mulher que você é.  
+Sou eu, sim.  
+Alguém que te admira não só pelo que vejo por fora,  
+mas pela mulher que você é.  
 
-        Um exemplo vivo de força,  
-        que mesmo nas adversidades  
-        se mantém de pé,  
-        com a certeza de que Deus tem um propósito maior.  
+Um exemplo vivo de força,  
+que mesmo nas adversidades  
+se mantém de pé,  
+com a certeza de que Deus tem um propósito maior.  
 
-        Sete meses se passaram  
-        desde aquela noite de sábado,  
-        a noite mais estrelada que já contemplei.  
+Sete meses se passaram  
+desde aquela noite de sábado,  
+a noite mais estrelada que já contemplei.  
 
-        Nenhum problema, nenhum pensamento alheio  
-        foi capaz de me distrair,  
-        porque por cerca de duas horas  
-        vivi um dos momentos mais memoráveis da minha vida.  
+Nenhum problema, nenhum pensamento alheio  
+foi capaz de me distrair,  
+porque por cerca de duas horas  
+vivi um dos momentos mais memoráveis da minha vida.  
 
-        Guardo comigo o brilho dos seus olhos,  
-        o seu sorriso tímido,  
-        o seu jeito meigo que, confesso,  
-        fez meu coração derreter  
-        como gelo ao sol da manhã.  
+Guardo comigo o brilho dos seus olhos,  
+o seu sorriso tímido,  
+o seu jeito meigo que, confesso,  
+fez meu coração derreter  
+como gelo ao sol da manhã.  
 
-        E desde então,  
-        essa flor que é você  
-        segue florescendo cada vez mais.  
+E desde então,  
+essa flor que é você  
+segue florescendo cada vez mais.  
 
-        O Senhor tem regado,  
-        tem cuidado de cada detalhe,  
-        e minha esperança é que um dia  
-        Ele me dê a honra de ajudar nesse cuidado,  
-        pra que você floresça ainda mais forte,  
-        ainda mais bela,  
-        do jeitinho que Ele sonhou pra você.
+O Senhor tem regado,  
+tem cuidado de cada detalhe,  
+e minha esperança é que um dia  
+Ele me dê a honra de ajudar nesse cuidado,  
+pra que você floresça ainda mais forte,  
+ainda mais bela,  
+do jeitinho que Ele sonhou pra você.
       </p>
 
       <div class="trecho">
-        Amar não é curar todas as dores,  
-        mas é segurar a mão durante as tempestades.  
-        É escolher ficar quando seria mais fácil partir,  
-        e aprender juntos a transformar feridas em flores.  
+Amar não é curar todas as dores,  
+mas é segurar a mão durante as tempestades.  
+É escolher ficar quando seria mais fácil partir,  
+e aprender juntos a transformar feridas em flores.  
 
-        É estar disposto a crescer, tropeçar  
-        e recomeçar juntos.
+É estar disposto a crescer, tropeçar  
+e recomeçar juntos.
       </div>
 
       <p>
-        Eu te espero.  
-        Assim como o girassol espera o sol pela manhã,  
-        com os olhos voltados pra luz,  
-        crendo que, no tempo certo, tudo floresce.
+Eu te espero.  
+Assim como o girassol espera o sol pela manhã,  
+com os olhos voltados pra luz,  
+crendo que, no tempo certo, tudo floresce.
       </p>
 
       <div class="footer">
         Criado com todo meu carinho para você, para que floresça ainda mais bela.
       </div>
+    </main>
+  </div>
+
+  <!-- Overlay de bloqueio: aparece até a data/hora alvo -->
+  <div id="overlay" class="overlay" aria-hidden="true">
+    <div class="lock-box" role="region" aria-live="polite">
+      <h2>Em breve</h2>
+      <p>Este conteúdo será liberado em:</p>
+      <div class="countdown" id="countdown">—:—:—:—</div>
+      <div class="small" id="targetText">Data alvo: 08/10/2025 às 19:30 (horário local)</div>
+      <div class="small" style="margin-top:10px;">Se desejar abrir antes, verifique o relógio do seu aparelho.</div>
+      <!-- opcional: botão para atualizar manualmente -->
+      <div style="margin-top:14px;">
+        <a class="btn" href="#" id="refreshBtn">Atualizar agora</a>
+      </div>
     </div>
   </div>
+
+  <script>
+    (function(){
+      const overlay = document.getElementById('overlay');
+      const countdownEl = document.getElementById('countdown');
+      const targetText = document.getElementById('targetText');
+      const refreshBtn = document.getElementById('refreshBtn');
+
+      // DEFINA AQUI A DATA/HORA ALVO (ano, mêsIndex(0=Jan), dia, hora, min, seg)
+      // Outubro = mêsIndex 9
+      const target = new Date(2025, 9, 8, 19, 30, 0); // 08/10/2025 19:30 horario LOCAL do visitante
+
+      // mostra data formatada no overlay
+      function formatTarget(d){
+        // dia/mês/ano hh:mm
+        const dd = String(d.getDate()).padStart(2,'0');
+        const mm = String(d.getMonth()+1).padStart(2,'0');
+        const yyyy = d.getFullYear();
+        const hh = String(d.getHours()).padStart(2,'0');
+        const min = String(d.getMinutes()).padStart(2,'0');
+        return dd + '/' + mm + '/' + yyyy + ' às ' + hh + ':' + min;
+      }
+      targetText.textContent = 'Data alvo: ' + formatTarget(target) + ' (horário local)';
+
+      function update(){
+        const now = new Date();
+        const diff = target - now;
+
+        if (diff <= 0) {
+          // liberar conteúdo
+          overlay.style.display = 'none';
+          overlay.setAttribute('aria-hidden','true');
+          return;
+        }
+
+        // calcular dias, horas, minutos, segundos
+        const sec = Math.floor(diff / 1000);
+        const days = Math.floor(sec / (3600*24));
+        const hours = Math.floor((sec % (3600*24)) / 3600);
+        const minutes = Math.floor((sec % 3600) / 60);
+        const seconds = sec % 60;
+
+        // montar texto (ex: 1d 05:12:07)
+        const dd = days > 0 ? days + 'd ' : '';
+        const hh = String(hours).padStart(2,'0');
+        const mm = String(minutes).padStart(2,'0');
+        const ss = String(seconds).padStart(2,'0');
+
+        countdownEl.textContent = dd + hh + ':' + mm + ':' + ss;
+      }
+
+      // checa imediatamente e a cada 1s
+      update();
+      const id = setInterval(update, 1000);
+
+      // botão atualizar
+      refreshBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        update();
+        // se já passou, esconder overlay
+        if (new Date() >= target) {
+          overlay.style.display = 'none';
+          overlay.setAttribute('aria-hidden','true');
+        }
+      });
+
+      // no carregamento inicial, se já passou, libera sem mostrar overlay
+      if (new Date() >= target) {
+        overlay.style.display = 'none';
+        overlay.setAttribute('aria-hidden','true');
+      }
+    })();
+  </script>
 </body>
 </html>
+
+
