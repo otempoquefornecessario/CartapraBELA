@@ -79,20 +79,17 @@
       text-align: center;
     }
 
+    @media (max-width: 600px) {
+      h1 { font-size: 32px; }
+      p, .trecho, .desculpas, .final-text, .novo-texto { font-size: 16px; }
+      .container { padding: 28px; }
+    }
   </style>
 </head>
 
 <body>
-
-<!-- 🎵 ÁUDIO (VOCÊ PRECISA COLOCAR O ARQUIVO AQUI) -->
-<audio id="bgMusic" loop>
-  <!-- 👉 SUBSTITUA PELO SEU ARQUIVO REAL -->
-  <source src="SEU_LINK_DO_TURNING_PAGE.mp3" type="audio/mpeg">
-</audio>
-
 <div class="page-wrapper">
   <main class="container">
-
     <h1>Para Você</h1>
 
     <div class="data-texto">8 de outubro de 2025</div>
@@ -155,24 +152,97 @@ crendo que, no tempo certo, tudo floresce.
 Criado com todo meu carinho para você, para que floresça ainda mais bela.
     </div>
 
-    <!-- TODO O RESTO DO SEU TEXTO CONTINUA AQUI IGUAL -->
-    <!-- NÃO ALTEREI NADA -->
+    <div class="data-texto">28 de outubro de 2025</div>
+    <div class="desculpas">
+Me desculpa, Mari.  
+Eu te amo e escolho te amar em todas as realidades alternativas em que você possa existir.  
+Não retiro nenhuma palavra, nenhum gesto de amor e carinho que fiz pra você.  
+Quero cuidar de você e ser seu porto seguro em meio a tantas tempestades.  
+Venho buscando que Deus me fortaleça,  
+para que eu possa te amar e proteger da maneira correta.
+    </div>
+
+    <div class="data-texto">31 de dezembro de 2025</div>
+    <div class="final-text">
+Mari, finalmente chegou o final de ano…  
+e eu não poderia deixar virar o ano sem te dizer uma coisa.  
+
+Obrigado. Obrigado por tudo.  
+Obrigado por ter sido tão especial pra mim nesse ano,  
+por ter sido alguém tão importante e tão presente na minha vida.  
+
+2026 vem aí, e eu creio de verdade que Deus ainda tem muitas coisas boas reservadas pra nós.  
+Que esse laço que a gente construiu possa se fortalecer ainda mais,  
+do jeito que Ele permitir.  
+
+E tentando, pela primeira vez, ser um pouco breve,  
+quero finalizar o que tenho pra falar pra você com essa música:  
+
+“Until I Found You” – Stephen Sanchez
+    </div>
+
+    <div class="data-texto">27 de janeiro de 2026</div>
+    <div class="novo-texto">
+Hoje, dia 27 de janeiro, às 12:48, completa um ano desde que te enviei um elogio em forma de poema.  
+Como eu disse naquele dia, você despertou meu lado poeta e, desde então, despertou também o melhor de mim.  
+Começamos sem saber onde isso daria, apenas seguimos, e tudo foi se construindo até aqui,  
+onde valeu e está valendo a pena cada momento.  
+Sem sombra de dúvidas, aquela mensagem foi uma das decisões mais acertadas da minha vida,  
+não apenas pela forma, mas pelo caminho que ela abriu.  
+Pois, no dia em que começamos a nos falar,  
+me pergunto se as estrelas olharam para nós e pensaram:  
+“eles finalmente se conheceram”.
+
+<br><br>
+
+<i>
+Vós sois, sem dúvida, a personificação da beleza celeste,  
+cuja graça resplandece como aurora  
+e enleva o coração deste humilde admirador 🙂
+</i>
+    </div>
+
+    <div class="data-texto">8 de março de 2026</div>
+    <div class="novo-texto">
+Minha flor,
+
+hoje completa um ano desde a primeira vez que te vi  
+há um palmo de distância,  
+há um palmo do paraíso.
+
+Eu quero relembrar de tudo  
+que fez daquela noite inesquecível.
+
+E o “tudo” que estou falando  
+é você, meu bem.
+
+Desde aquela noite, sinto mil capacidades brotarem em mim  
+toda vez que você vem à minha mente.
+
+É como se eu desenvolvesse habilidades  
+que nunca imaginei conseguir  
+e que hoje parecem tão perto de serem alcançadas.
+
+Pois, se cada pensamento meu em você virasse flor,  
+o mundo não teria estações…  
+viveria em eterna primavera.
+
+Você une tudo que há de melhor  
+a ser aproveitado por Deus,  
+uma princesa do Deus vivo.
+
+E termino dizendo que  
+você só precisa existir  
+pra me completar.
+
+Assim como diz essa canção  
+que todas as vezes que escuto  
+seu nome ecoa como um trovão no meu coração:
+
+“Ela Une Todas As Coisas” – Jorge Vercillo
+    </div>
 
   </main>
 </div>
-
-<script>
-document.addEventListener("click", function () {
-  const music = document.getElementById("bgMusic");
-
-  if (music.paused) {
-    music.volume = 0.3;
-    music.play().catch(() => {
-      console.log("Áudio bloqueado ou link inválido");
-    });
-  }
-});
-</script>
-
 </body>
 </html>
