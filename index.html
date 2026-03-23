@@ -239,10 +239,27 @@ Assim como diz essa canção
 que todas as vezes que escuto  
 seu nome ecoa como um trovão no meu coração:
 
-“Ela Une Todas As Coisas” – Jorge Vercillo
+“Ela Une Todas As Coisas” – Jorge Vercello
     </div>
 
   </main>
 </div>
+
+<!-- 🎵 MÚSICA -->
+<audio id="bgMusic" loop>
+  <source src="turning-page.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener("click", function () {
+  const music = document.getElementById("bgMusic");
+
+  if (music.paused) {
+    music.volume = 0.3;
+    music.play();
+  }
+});
+</script>
+
 </body>
 </html>
